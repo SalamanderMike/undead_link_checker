@@ -1,6 +1,12 @@
 <div style="text-align:center;">
   <h1>Enter Suspected Undead Site URL</h1>
 
+  <%= form_for @site do |f| %>
+
+      <%= f.text_field :url, placeholder: "URL" %></br>
+      <%= f.submit "Submit" %></br>
+
+  <% end %>
 
 
 </div>
