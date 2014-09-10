@@ -1,12 +1,13 @@
-<div style="text-align:center;">
-  <h1>Enter Suspected Undead Site URL</h1>
+  <h1>Enter Site for Suspected Undead Links</h1>
 
   <%= form_for @site do |f| %>
-
+<div id="field">
       <%= f.text_field :url, placeholder: "URL" %></br>
-      <%= f.submit "Submit" %></br>
+</div>
+
+<div id="butt">
+      <%= f.submit "Find Undead Links!" %></br>
+</div>
 
   <% end %>
 
-
-</div>

@@ -1,6 +1,4 @@
 class SitesController < ApplicationController
-  require 'open-uri'
-
 
   def new
     @site = Site.new
@@ -8,20 +6,15 @@ class SitesController < ApplicationController
   end
 
   def create
-    url_params = params.require(:site).permit(:url)
-    site = Site.create(url_params)
-    redirect_to site_path(site.id)
+    require 'open-uri'
+    url = params.require(:site)[:url]
+    site = Site.create(url: url)
+    LinksWorker.perform_async(site.id)
+    redirect_to site_path(site)
   end
 
   def show
     id = params[:id]
     @site = Site.find(id)
-    @link = Array.new
-    url = open(@site.url).read
-
-    @page = Nokogiri::HTML(url)
-
-
-
   end
 end

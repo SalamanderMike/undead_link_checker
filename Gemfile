@@ -38,6 +38,8 @@ gem 'typhoeus'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem "rspec-rails", :group => [:development, :test]
+
 gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
